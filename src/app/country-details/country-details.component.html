@@ -1,0 +1,11 @@
+<div *ngIf="countryData">
+  <h2>{{ countryData.country }}</h2>
+  <p>Number of participations: {{ countryData.participations.length }}</p>
+  <p>Total medals won: {{ totalMedalsWon }}</p>
+  <p>Total athletes entered: {{ totalAthletesEntered }}</p>
+  <a routerLink="">Go back</a>
+</div>
+
+<div *ngIf="medalsByEditionChartData">
+  <app-chart [chartData]="medalsByEditionChartData" [chartLabels]="medalsByEditionChartLabels" [chartType]="'line'"></app-chart>
+</div>

@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
             },
           ],
         };
+        this.chartLabels = this.chartData.labels as string[]; // Use a type assertion here
         this.olympicGamesCount = this.getOlympicGamesCount(data);
       }
     });

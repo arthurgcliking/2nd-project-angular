@@ -2,6 +2,7 @@
   <canvas baseChart
     [data]="chartData"
     [labels]="chartLabels"
-    [type]="chartType">
+    [type]="chartType"
+    (chartClick)="onChartClick($event)">
   </canvas>
 </div>
