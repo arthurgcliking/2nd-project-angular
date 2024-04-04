@@ -12,7 +12,7 @@ import { ChartClickEvent } from 'src/app/chart-event';
 export class ChartComponent {
   @Input() chartData: ChartData<ChartType> | undefined;
   @Input() chartLabels: string[] = [];
-  @Input() chartType: ChartType = 'pie'; // Add this line
+  @Input() chartType: ChartType = 'pie';
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
 
@@ -26,24 +26,23 @@ export class ChartComponent {
   }
 
   onChartClick(event: any) {
-    console.log('Chart clicked:', event);
-    const chartEvent = event.event as ChartEvent;
-    const activeElements = event.active;
-    if (this.chart && activeElements.length > 0) {
-      const countryName = this.chartLabels[activeElements[0].index];
-      console.log('Chart labels:', this.chartLabels); // Add this line
-      console.log('Active element index:', activeElements[0].index); // Add this line
-      if (countryName) {
-        console.log('Navigating to country:', countryName);
-        this.router.navigate(['country', countryName]);
+    if (this.chartType === 'pie') {
+      console.log('Chart clicked:', event);
+      const chartEvent = event.event as ChartEvent;
+      const activeElements = event.active;
+      if (this.chart && activeElements.length > 0) {
+        const countryName = this.chartLabels[activeElements[0].index];
+        console.log('Chart labels:', this.chartLabels);
+        console.log('Active element index:', activeElements[0].index);
+        if (countryName) {
+          console.log('Navigating to country:', countryName);
+          this.router.navigate(['country', countryName]);
+        } else {
+          console.log('Country name is undefined');
+        }
       } else {
-        console.log('Country name is undefined');
+        console.log('No active elements or chart is undefined');
       }
-    } else {
-      console.log('No active elements or chart is undefined');
     }
   }
-
-
-
 }

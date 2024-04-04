@@ -1,11 +1,29 @@
 <div *ngIf="countryData">
-  <h2>{{ countryData.country }}</h2>
-  <p>Number of participations: {{ countryData.participations.length }}</p>
-  <p>Total medals won: {{ totalMedalsWon }}</p>
-  <p>Total athletes entered: {{ totalAthletesEntered }}</p>
-  <a routerLink="">Go back</a>
+  <div class="content-container">
+    <div class="title-container">
+      <h2>{{ countryData.country }}</h2>
+    </div>
+
+    <div class="stats-container">
+      <div class="participations-container">
+        <h3>Number of entries: {{ countryData.participations.length }}</h3>
+      </div>
+      <div class="medals-container">
+        <h3>Total number medals: {{ totalMedalsWon }}</h3>
+      </div>
+      <div class="athletes-container">
+        <h3>Total number of athletes: {{ totalAthletesEntered }}</h3>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="medalsByEditionChartData">
-  <app-chart [chartData]="medalsByEditionChartData" [chartLabels]="medalsByEditionChartLabels" [chartType]="'line'"></app-chart>
+  <div class="chart-container">
+    <app-chart style="width: 700px;" [chartData]="medalsByEditionChartData" [chartLabels]="medalsByEditionChartLabels" [chartType]="'line'"></app-chart>
+  </div>
+</div>
+
+<div class="center">
+  <a routerLink="">Back to Medals per country</a>
 </div>

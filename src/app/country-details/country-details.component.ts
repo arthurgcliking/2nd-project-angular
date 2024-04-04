@@ -11,8 +11,8 @@ import { ChartData, ChartType } from 'chart.js';
 })
 export class CountryDetailsComponent implements OnInit {
   countryData: OlympicCountry | undefined;
-  totalMedalsWon: number = 0; // Add this line
-  totalAthletesEntered: number = 0; // Add this line
+  totalMedalsWon: number = 0;
+  totalAthletesEntered: number = 0;
   medalsByEditionChartData: ChartData<'line'> | undefined;
   medalsByEditionChartLabels: string[] = [];
 
@@ -41,7 +41,7 @@ export class CountryDetailsComponent implements OnInit {
                 labels: this.medalsByEditionChartLabels,
                 datasets: [
                   {
-                    label: 'Medals per year',
+                    label: 'Medals',
                     data: this.countryData.participations.map((participation) => participation.medalsCount),
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',

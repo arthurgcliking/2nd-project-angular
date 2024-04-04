@@ -1,0 +1,77 @@
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title-container {
+  background-color: rgb(18, 117, 167);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: fit-content;
+  margin: 0;
+}
+
+h2 {
+  color: white;
+  margin: 0;
+  font-weight: lighter;
+}
+
+h3 {
+  color: gray;
+  margin: 0;
+  font-weight: lighter;
+}
+
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.participations-container,
+.medals-container,
+.athletes-container {
+  border-style: ridge;
+  border-color: rgb(18, 117, 167);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: fit-content;
+  margin: 10px;
+  flex-basis: 20%;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .participations-container,
+  .medals-container,
+  .athletes-container {
+    flex-basis: 55%;
+  }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 25px;
+}

@@ -11,7 +11,7 @@ import { ChartType, ChartData } from 'chart.js';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public olympics$: Observable<OlympicCountry[] | null | undefined> = of(null); // Assign an initial value
+  public olympics$: Observable<OlympicCountry[] | null | undefined> = of(null);
   public chartData: ChartData<'pie'> = {
     labels: [],
     datasets: [],
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   constructor(private olympicService: OlympicService, private chartDataService: ChartDataService) {}
 
   ngOnInit(): void {
-    this.olympics$ = this.olympicService.getOlympics(); // Assign the observable directly
+    this.olympics$ = this.olympicService.getOlympics();
     this.olympics$.subscribe((data) => {
       if (data) {
         this.chartData = {
@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
             },
           ],
         };
-        this.chartLabels = this.chartData.labels as string[]; // Use a type assertion here
+        this.chartLabels = this.chartData.labels as string[];
         this.olympicGamesCount = this.getOlympicGamesCount(data);
       }
     });
