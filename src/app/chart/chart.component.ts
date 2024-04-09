@@ -2,7 +2,7 @@ import { Component, Input, ViewChild } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 import { Router } from '@angular/router';
 import { ChartType, ChartData, ChartEvent } from 'chart.js';
-import { ChartClickEvent } from 'src/app/chart-event';
+
 
 @Component({
   selector: 'app-chart',

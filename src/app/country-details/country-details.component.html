@@ -20,10 +20,10 @@
 
 <div *ngIf="medalsByEditionChartData">
   <div class="chart-container">
-    <app-chart style="width: 700px;" [chartData]="medalsByEditionChartData" [chartLabels]="medalsByEditionChartLabels" [chartType]="'line'"></app-chart>
+    <app-chart style="width: 550px;" [chartData]="medalsByEditionChartData" [chartLabels]="medalsByEditionChartLabels" [chartType]="'line'"></app-chart>
   </div>
 </div>
 
-<div class="center">
+<div class="center" *ngIf="countryData">
   <a routerLink="">Back to Medals per country</a>
 </div>
