@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { OlympicCountry } from '../models/Olympic';
+import { OlympicError } from '../errors/olympic-error';
 
 @Injectable({
   providedIn: 'root',
@@ -14,15 +15,14 @@ export class OlympicService {
 
   constructor(private http: HttpClient) {}
 
-  loadInitialData(): Observable<OlympicCountry[]> {
+  loadInitialData(): Observable<OlympicCountry[] | null> {
     return this.http.get<OlympicCountry[]>(this.olympicUrl).pipe(
       tap((value) => this.olympics$.next(value)),
-      catchError((error, caught) => {
-        // TODO: improve error handling
+      catchError((error) => {
         console.error(error);
-        // can be useful to end loading state and let the user know something went wrong
         this.olympics$.next(null);
-        return caught;
+        const message = 'An error occurred while fetching Olympic data. Please try again later.';
+        return throwError(() => new OlympicError(message));
       })
     );
   }
